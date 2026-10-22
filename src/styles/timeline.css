@@ -1,0 +1,433 @@
+/* ============================================================
+   AUTOMOTIVE TIME MACHINE — Horizontal Automotive Timeline
+   Cinematic scroll-driven horizontal journey across 9 eras
+   ============================================================ */
+
+.timeline-journey-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Sticky Viewport (Desktop) ─────────────────────────────── */
+.timeline-sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* ── Parallax Background Track ─────────────────────────────── */
+.timeline-bg-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.timeline-bg-panel {
+  height: 100%;
+  width: 120vw;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* ── Parallax Watermark Track ──────────────────────────────── */
+.timeline-watermark-track {
+  position: absolute;
+  top: 48%;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+  transform: translateY(-50%);
+}
+
+.timeline-watermark-item {
+  width: 90vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.timeline-watermark-item span {
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 22vw, 24rem);
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent-secondary);
+  opacity: 0.06;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+/* ── Scale Stage (Coordinated with Vehicle Selection) ──────── */
+.timeline-scale-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: transform var(--motion-flow, 450ms) var(--ease-automotive-out, cubic-bezier(0.16, 1, 0.3, 1)),
+              filter var(--motion-flow, 450ms) ease;
+  will-change: transform, filter;
+}
+
+.timeline-scale-stage.is-inspecting {
+  transform: scale(0.965);
+  filter: brightness(0.55) blur(2.5px);
+  pointer-events: none;
+}
+
+/* ── Main Content Track ────────────────────────────────────── */
+.timeline-track {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+/* ── Era Section in Horizontal Mode ────────────────────────── */
+@media (min-width: 1024px) {
+  .timeline-track .era-section {
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0 5vw 0 6vw;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .timeline-track .era-section .container {
+    max-width: none;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4.5rem;
+  }
+
+  /* Era Header column */
+  .timeline-track .era-section__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 360px;
+    min-width: 360px;
+    max-width: 360px;
+    margin-bottom: 0;
+    gap: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .timeline-track .era-section__divider {
+    display: none;
+  }
+
+  .timeline-track .era-section__title {
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-track .era-section__narrative {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 340px;
+  }
+
+  /* Horizontal Showcase of vehicle cards */
+  .timeline-track .era-section__grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.25rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .timeline-track .era-section__grid-item {
+    flex-shrink: 0;
+  }
+
+  .timeline-track .era-section__grid-item--portrait {
+    width: 340px;
+  }
+
+  .timeline-track .era-section__grid-item--landscape {
+    width: 440px;
+  }
+
+  .timeline-track .era-section__grid-item--wide {
+    width: 500px;
+  }
+
+  .timeline-track .vehicle-card {
+    height: 480px;
+    max-height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .timeline-track .vehicle-card__image-wrap {
+    height: 250px;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+
+  .timeline-track .vehicle-card__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .timeline-track .vehicle-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .timeline-track .era-section__footer-ornament {
+    display: none;
+  }
+
+  /* Era Gateway Divider */
+  .era-gateway-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 0 4rem;
+    flex-shrink: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .era-gateway-line {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--border-primary), transparent);
+  }
+
+  .era-gateway-badge {
+    margin: 1.5rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    color: var(--accent-secondary);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+/* ── Parallax Foreground Telemetry Track ───────────────────── */
+.timeline-telemetry-track {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  pointer-events: none;
+  z-index: 4;
+  will-change: transform;
+}
+
+.timeline-telemetry-item {
+  width: 90vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-left: 6vw;
+}
+
+.timeline-telemetry-item__line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, var(--border-primary) 0%, transparent 100%);
+  opacity: 0.35;
+}
+
+.timeline-telemetry-item__code {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--accent-secondary);
+  opacity: 0.5;
+}
+
+/* ── Floating Controls Bar (Bottom) ────────────────────────── */
+.timeline-hud {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 3rem;
+  right: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.timeline-hud__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  background: rgba(18, 16, 24, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  pointer-events: auto;
+}
+
+.timeline-hud__meter {
+  width: 48px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.timeline-hud__meter-fill {
+  height: 100%;
+  background: var(--accent-primary, #C7A985);
+  border-radius: 999px;
+  transition: width 100ms linear;
+}
+
+.timeline-hud__percent {
+  color: var(--accent-primary, #C7A985);
+  font-weight: 600;
+  min-width: 28px;
+}
+
+.timeline-hud__nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+.timeline-hud__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  background: rgba(18, 16, 24, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.timeline-hud__btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  background: var(--bg-surface);
+  transform: translateY(-2px);
+}
+
+/* ── Mobile / Tablet Responsive Fallback ───────────────────── */
+@media (max-width: 1023px) {
+  .timeline-journey-wrapper {
+    height: auto !important;
+  }
+
+  .timeline-sticky-viewport {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .timeline-bg-track,
+  .timeline-watermark-track,
+  .timeline-telemetry-track,
+  .timeline-hud,
+  .era-gateway-divider {
+    display: none !important;
+  }
+
+  .timeline-scale-stage {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .timeline-track {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .era-section {
+    padding: clamp(4rem, 10vw, 7rem) 0;
+    min-height: auto;
+  }
+}
+
+/* ── Reduced Motion Preference ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-journey-wrapper {
+    height: auto !important;
+  }
+
+  .timeline-sticky-viewport {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .timeline-bg-track,
+  .timeline-watermark-track,
+  .timeline-telemetry-track,
+  .timeline-hud,
+  .era-gateway-divider {
+    display: none !important;
+  }
+
+  .timeline-track {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .timeline-scale-stage {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

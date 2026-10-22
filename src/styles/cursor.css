@@ -1,0 +1,213 @@
+/* ============================================================
+   AUTOMOTIVE TIME MACHINE — Instrument Reticle Cursor
+   Inspired by classic chronographs and modern heads-up displays
+   ============================================================ */
+
+.cursor-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  pointer-events: none !important;
+}
+
+/* Precision Center Dot */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--cursor-color, #C7A985);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none !important;
+  opacity: 0;
+  transition: opacity var(--motion-rapid, 250ms) ease,
+              background var(--motion-rapid, 250ms) ease,
+              transform var(--motion-instant, 150ms) ease;
+  will-change: transform;
+}
+
+.cursor-dot.is-visible {
+  opacity: 1;
+}
+
+.cursor-dot.is-hover-button {
+  background: var(--accent-gold, #D4A853);
+  transform: scale(1.4) !important;
+}
+
+.cursor-dot.is-hover-vehicle {
+  background: var(--accent-primary, #C7A985);
+  transform: scale(1.6) !important;
+}
+
+.cursor-dot.is-clicking {
+  transform: scale(0.6) !important;
+  background: #ffffff !important;
+}
+
+/* Outer Instrument Reticle Ring */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  margin-top: -17px;
+  margin-left: -17px;
+  border: 1px solid rgba(199, 169, 133, 0.45);
+  border-radius: 50%;
+  z-index: 9998;
+  pointer-events: none !important;
+  opacity: 0;
+  transition: opacity var(--motion-rapid, 250ms) ease,
+              width var(--motion-flow, 450ms) var(--ease-automotive-out, cubic-bezier(0.16, 1, 0.3, 1)),
+              height var(--motion-flow, 450ms) var(--ease-automotive-out, cubic-bezier(0.16, 1, 0.3, 1)),
+              margin var(--motion-flow, 450ms) var(--ease-automotive-out, cubic-bezier(0.16, 1, 0.3, 1)),
+              border-color var(--motion-rapid, 250ms) ease,
+              background-color var(--motion-rapid, 250ms) ease;
+  will-change: transform, width, height;
+}
+
+.cursor-ring.is-visible {
+  opacity: 0.85;
+}
+
+/* Reticle ticks (4 cardinal marks) */
+.cursor-reticle {
+  position: absolute;
+  background: var(--cursor-color, #C7A985);
+  opacity: 0.65;
+  transition: all var(--motion-flow, 450ms) var(--ease-automotive-out, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.cursor-reticle--t {
+  top: -4px;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  transform: translateX(-50%);
+}
+
+.cursor-reticle--b {
+  bottom: -4px;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  transform: translateX(-50%);
+}
+
+.cursor-reticle--l {
+  left: -4px;
+  top: 50%;
+  width: 4px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.cursor-reticle--r {
+  right: -4px;
+  top: 50%;
+  width: 4px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.cursor-badge-text {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary, #C7A985);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--motion-rapid, 250ms) ease;
+  pointer-events: none;
+}
+
+/* Hover state: Buttons & Links */
+.cursor-ring.is-hover-button {
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  margin-left: -22px;
+  border-color: var(--accent-gold, #D4A853);
+  background: rgba(212, 168, 83, 0.05);
+  opacity: 0.95;
+}
+
+/* Hover state: Vehicle Cards */
+.cursor-ring.is-hover-vehicle {
+  width: 62px;
+  height: 62px;
+  margin-top: -31px;
+  margin-left: -31px;
+  border-color: var(--accent-primary, #C7A985);
+  border-style: solid;
+  border-width: 1.25px;
+  background: rgba(199, 169, 133, 0.04);
+  opacity: 1;
+}
+
+.cursor-ring.is-hover-vehicle .cursor-reticle {
+  opacity: 0.9;
+}
+.cursor-ring.is-hover-vehicle .cursor-reticle--t { height: 6px; top: -6px; }
+.cursor-ring.is-hover-vehicle .cursor-reticle--b { height: 6px; bottom: -6px; }
+.cursor-ring.is-hover-vehicle .cursor-reticle--l { width: 6px; left: -6px; }
+.cursor-ring.is-hover-vehicle .cursor-reticle--r { width: 6px; right: -6px; }
+.cursor-ring.is-hover-vehicle .cursor-badge-text { opacity: 1; }
+
+/* Click state */
+.cursor-ring.is-clicking {
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-color: #ffffff;
+  opacity: 1;
+}
+
+/* Momentary Focused-Reticle State on Vehicle Selection */
+.cursor-ring.is-locked {
+  width: 28px !important;
+  height: 28px !important;
+  margin-top: -14px !important;
+  margin-left: -14px !important;
+  border-color: var(--accent-gold, #D4A853) !important;
+  border-width: 2px !important;
+  background: rgba(212, 168, 83, 0.2) !important;
+  box-shadow: 0 0 16px rgba(212, 168, 83, 0.6);
+  animation: reticlePulse 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes reticlePulse {
+  0% { transform: scale(1.4); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Disable on touch and coarse devices */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-canvas {
+    display: none !important;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-canvas {
+    display: none !important;
+  }
+}

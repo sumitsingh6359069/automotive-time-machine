@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="renaissance">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="An immersive journey through the evolution of the automobile — from the first gasoline engine to electric hypercars and Formula 1 racing machines." />
+    <meta name="theme-color" content="#420409" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Automotive Time Machine" />
+    <meta property="og:description" content="An immersive chronological journey through automotive history." />
+    <meta property="og:type" content="website" />
+
+    <title>Automotive Time Machine</title>
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Inline critical styles to prevent FOUC -->
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { background: #1a0a05; }
+      body { background: #1a0a05; color: #EAD3B4; overflow-x: hidden; }
+      #root { min-height: 100vh; }
+      /* Loading screen */
+      #loading-screen {
+        position: fixed; inset: 0; background: #1a0a05;
+        display: flex; align-items: center; justify-content: center;
+        z-index: 99999; transition: opacity 0.8s ease;
+      }
+      #loading-screen.hidden { opacity: 0; pointer-events: none; }
+      .loading-wordmark {
+        font-family: Georgia, serif; font-size: 1.1rem;
+        letter-spacing: 0.3em; text-transform: uppercase;
+        color: rgba(199, 169, 133, 0.8);
+        animation: loadPulse 1.5s ease-in-out infinite;
+      }
+      @keyframes loadPulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading screen -->
+    <div id="loading-screen" aria-live="polite" aria-label="Loading automotive experience">
+      <p class="loading-wordmark">Automotive Time Machine</p>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // Resilient loading screen dismissal
+      function dismissLoadingScreen() {
+        const ls = document.getElementById('loading-screen');
+        if (ls && !ls.classList.contains('hidden')) {
+          ls.classList.add('hidden');
+          setTimeout(() => ls.remove(), 900);
+        }
+      }
+      window.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoadingScreen, 400));
+      window.addEventListener('load', () => setTimeout(dismissLoadingScreen, 200));
+      setTimeout(dismissLoadingScreen, 2000); // Safety fallback
+    </script>
+  </body>
+</html>

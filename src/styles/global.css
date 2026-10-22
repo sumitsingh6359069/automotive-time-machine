@@ -1,0 +1,292 @@
+/* ============================================================
+   AUTOMOTIVE TIME MACHINE — Global Stylesheet
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+@import './tokens.css';
+
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary, #1a0a05);
+  color: var(--text-primary, #EAD3B4);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* replaced by custom cursor on desktop */
+}
+
+/* Restore cursor on touch / no-hover devices */
+@media (hover: none) {
+  body { cursor: auto; }
+}
+
+/* ── Reduced-motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(2.5rem, 7vw, 6.5rem); }
+h2 { font-size: clamp(2rem, 5vw, 4.5rem); }
+h3 { font-size: clamp(1.5rem, 3.5vw, 2.8rem); }
+h4 { font-size: clamp(1.15rem, 2.5vw, 1.8rem); }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; font-family: var(--font-sans); }
+
+p { font-family: var(--font-serif); font-size: clamp(0.9rem, 1.5vw, 1.05rem); line-height: 1.75; }
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+small { font-size: 0.8rem; }
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+a:hover { color: var(--text-primary); }
+
+/* ── Focus styles (accessibility) ───────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-secondary); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+/* ── Utility classes ─────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 4rem);
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--accent-primary);
+  margin: var(--space-md) 0;
+}
+
+.divider--center { margin: var(--space-md) auto; }
+
+/* ── Overlay / Backdrop ──────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: var(--z-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) ease;
+}
+.overlay.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Image ───────────────────────────────────────────────── */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Button resets ───────────────────────────────────────── */
+button {
+  font-family: inherit;
+  cursor: none;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+@media (hover: none) {
+  button { cursor: pointer; }
+}
+
+/* ── Noise texture overlay (performance-safe) ────────────── */
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: var(--grain-opacity, 0.04);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 160px;
+  mix-blend-mode: overlay;
+}
+
+/* ── Page-level layout ───────────────────────────────────── */
+.site-wrapper {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Transition helpers ──────────────────────────────────── */
+.fade-enter { opacity: 0; transform: translateY(16px); }
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+/* ── Section base ────────────────────────────────────────── */
+.era-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── Vehicle card base ───────────────────────────────────── */
+.vehicle-card {
+  position: relative;
+  cursor: none;
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+@media (hover: none) {
+  .vehicle-card { cursor: pointer; }
+}
+
+.vehicle-card:hover { transform: scale(1.02); }
+
+/* ── Metallic border ornament ────────────────────────────── */
+.ornament-border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid var(--border-primary);
+}
+.ornament-border::before,
+.ornament-border::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--accent-primary);
+  border-style: solid;
+  opacity: 0.6;
+}
+.ornament-border::before { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
+.ornament-border::after  { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
+
+/* ── Horizontal rule ─────────────────────────────────────── */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border-primary);
+  margin: var(--space-xl) 0;
+}
+
+/* ── Spec table ─────────────────────────────────────────── */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+.spec-table tr { border-bottom: 1px solid var(--border-subtle); }
+.spec-table tr:last-child { border-bottom: none; }
+.spec-table td { padding: 0.45rem 0; vertical-align: top; }
+.spec-table td:first-child {
+  color: var(--text-muted);
+  padding-right: var(--space-md);
+  white-space: nowrap;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+}
+.spec-table td:last-child { color: var(--text-primary); }
+
+/* ── Loading skeleton ────────────────────────────────────── */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background: var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Progress bar ────────────────────────────────────────── */
+.progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transform-origin: left;
+  z-index: calc(var(--z-nav) + 1);
+  transition: width var(--duration-fast) linear;
+}

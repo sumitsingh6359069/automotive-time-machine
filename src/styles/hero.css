@@ -1,0 +1,221 @@
+/* Hero Section Styles */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--text-primary, #EAD3B4);
+}
+
+/* Background */
+.hero-bg {
+  position: absolute;
+  inset: -5%;
+  will-change: transform;
+  z-index: 0;
+}
+
+.hero-bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: sepia(0.35) contrast(0.9) brightness(0.55);
+}
+
+.hero-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 10, 5, 0.75) 0%,
+    rgba(66, 4, 9, 0.55) 45%,
+    rgba(26, 10, 5, 0.82) 100%
+  );
+}
+
+/* Vignette */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at 30% 50%, transparent 30%, rgba(26, 10, 5, 0.92) 100%);
+  pointer-events: none;
+}
+
+/* Ornamental SVG border */
+.hero-ornament {
+  position: absolute;
+  inset: clamp(1rem, 3vw, 2.5rem);
+  z-index: 2;
+  width: calc(100% - clamp(2rem, 6vw, 5rem));
+  height: calc(100% - clamp(2rem, 6vw, 5rem));
+  color: rgba(199, 169, 133, 0.3);
+  pointer-events: none;
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding-top: 6rem;
+  will-change: transform, opacity;
+}
+
+.hero-content__inner {
+  max-width: 680px;
+}
+
+.hero-eyebrow {
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s var(--ease-out-expo) 0.2s both;
+}
+
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  font-size: clamp(3rem, 9vw, 8rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  animation: fadeUp 1s var(--ease-out-expo) 0.4s both;
+}
+
+.hero-headline__line { display: block; }
+.hero-headline__line--italic {
+  font-style: italic;
+  color: var(--accent-primary, #C7A985);
+}
+
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: var(--accent-primary, #C7A985);
+  margin: 2rem 0;
+  animation: expandWidth 1s var(--ease-out-expo) 0.6s both;
+}
+
+.hero-subtext {
+  max-width: 520px;
+  color: var(--text-secondary, #DEC5A6);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.8;
+  animation: fadeUp 1s var(--ease-out-expo) 0.7s both;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA button */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2rem;
+  border: 1px solid var(--accent-primary, #C7A985);
+  color: var(--text-primary, #EAD3B4);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 1s var(--ease-out-expo) 0.9s both;
+  transition: color var(--duration-normal) ease;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-primary, #C7A985);
+  transform: translateX(-102%);
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.hero-cta:hover::before { transform: translateX(0); }
+.hero-cta:hover { color: var(--text-inverse, #1a0a05); }
+.hero-cta:hover .hero-cta__arrow { transform: translateX(4px); }
+
+.hero-cta__text { position: relative; z-index: 1; }
+
+.hero-cta__arrow {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+@media (hover: none) { .hero-cta { cursor: pointer; } }
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 3;
+  color: var(--text-muted, #8F6E4F);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  animation: fadeIn 1s ease 1.5s both;
+}
+
+.hero-scroll-indicator__line {
+  width: 1px;
+  height: 40px;
+  background: var(--accent-secondary, #8F6E4F);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Year watermark */
+.hero-year {
+  position: absolute;
+  bottom: 2rem;
+  right: clamp(1rem, 4vw, 4rem);
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 10rem);
+  font-weight: 300;
+  color: rgba(199, 169, 133, 0.06);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  z-index: 2;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to   { width: 80px; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.6; }
+  50%       { transform: scaleY(1.4); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero-headline { font-size: clamp(2.2rem, 13vw, 4rem); }
+  .hero-ornament { display: none; }
+}

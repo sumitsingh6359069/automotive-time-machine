@@ -1,0 +1,453 @@
+/* ============================================================
+   AUTOMOTIVE TIME MACHINE — Era Section & Transition Styles
+   Scroll-driven continuous transition system:
+   Vintage (Sepia/Parchment) → Blueprint (Technical) → Futuristic (Metallic)
+   ============================================================ */
+
+.era-section {
+  position: relative;
+  padding: clamp(6rem, 14vw, 12rem) 0;
+  overflow: hidden;
+  min-height: 85vh;
+  scroll-margin-top: 80px;
+  contain: layout style;
+}
+
+/* ── Seamless Era Transition Blends ────────────────────────── */
+.era-section__transition-blend {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(80px, 15vw, 180px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.era-section__transition-blend--top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+}
+
+.era-section__transition-blend--bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg-primary) 0%, transparent 100%);
+}
+
+/* ── Dynamic Section Background ────────────────────────────── */
+.era-section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: background 1s ease-in-out;
+}
+
+/* ── Evolution Atmosphere System ───────────────────────────── */
+.era-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* 1. Vintage Atmosphere (The Birth & Golden Age) */
+.era-atmosphere__vintage-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.vintage-sepia-glow {
+  position: absolute;
+  top: -10%;
+  right: 5%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 650px;
+  max-height: 650px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.08) 0%, rgba(199, 169, 133, 0.03) 40%, transparent 70%);
+  filter: blur(40px);
+}
+
+.vintage-corner-bracket {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent-primary);
+  opacity: 0.25;
+}
+
+.vintage-corner-bracket--tl {
+  top: 2rem;
+  left: 2rem;
+  border-right: none;
+  border-bottom: none;
+}
+
+.vintage-corner-bracket--tr {
+  top: 2rem;
+  right: 2rem;
+  border-left: none;
+  border-bottom: none;
+}
+
+.vintage-insignia {
+  position: absolute;
+  top: 2.2rem;
+  left: 4.5rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary);
+  opacity: 0.35;
+}
+
+/* 2. Mechanical Blueprint Atmosphere (Mid-Century & Performance) */
+.era-atmosphere__blueprint-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.blueprint-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(146, 113, 72, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(146, 113, 72, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  opacity: 0.7;
+}
+
+.blueprint-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(207, 207, 183, 0.25) 50%, transparent 100%);
+  box-shadow: 0 0 12px rgba(207, 207, 183, 0.15);
+  animation: blueprintScan 12s ease-in-out infinite alternate;
+}
+
+@keyframes blueprintScan {
+  0%   { top: 5%; opacity: 0.1; }
+  50%  { opacity: 0.45; }
+  100% { top: 95%; opacity: 0.1; }
+}
+
+.blueprint-crosshair {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--accent-primary);
+  opacity: 0.35;
+  user-select: none;
+}
+
+.blueprint-crosshair--tl { top: 2rem; left: 2rem; }
+.blueprint-crosshair--tr { top: 2rem; right: 2rem; }
+.blueprint-crosshair--bl { bottom: 2rem; left: 2rem; }
+.blueprint-crosshair--br { bottom: 2rem; right: 2rem; }
+
+.blueprint-tech-tag {
+  position: absolute;
+  top: 2.2rem;
+  right: 4rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* 3. Futuristic Cool Metallic Atmosphere (Modern, Supercar, Electric, F1) */
+.era-atmosphere__futuristic-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.futuristic-metallic-sheen {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(168, 153, 176, 0.05) 0%, transparent 70%);
+  filter: blur(50px);
+}
+
+.futuristic-telemetry-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, var(--accent-primary) 50%, transparent 95%);
+  opacity: 0.25;
+}
+
+.futuristic-hex-accent {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 280px;
+  height: 280px;
+  background-image: radial-gradient(rgba(175, 160, 183, 0.08) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  opacity: 0.5;
+  mask-image: radial-gradient(circle, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 75%);
+}
+
+.futuristic-hud-marker {
+  position: absolute;
+  top: 2.2rem;
+  right: 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--accent-primary);
+  opacity: 0.45;
+}
+
+/* ── Atmospheric Vignette ───────────────────────────────────── */
+.era-section__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--gradient-vignette, radial-gradient(ellipse at center, transparent 30%, rgba(26,10,5,0.65) 100%));
+  pointer-events: none;
+}
+
+/* ── Parallax Year Mark ─────────────────────────────────────── */
+.era-section__year-mark {
+  position: absolute;
+  top: 50%;
+  right: -0.04em;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 24vw, 24rem);
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent-primary, #C7A985);
+  opacity: 0.06;
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+  z-index: 1;
+  letter-spacing: -0.04em;
+  will-change: transform, opacity;
+  transition: opacity 0.4s ease;
+}
+
+/* ── Decorative Horizontal Accent Line ──────────────────────── */
+.era-section__line-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-primary, #C7A985), transparent);
+  opacity: 0.22;
+  z-index: 2;
+}
+
+/* ── Container Content Layer ───────────────────────────────── */
+.era-section .container {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Section Header ────────────────────────────────────────── */
+.era-section__header {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  margin-bottom: 3.5rem;
+  align-items: start;
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .era-section__header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.era-section__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 0.25rem;
+}
+
+/* Phase badge pill */
+.era-section__phase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 999px;
+  width: fit-content;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.era-section__phase-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-primary);
+}
+
+.era-section__label {
+  color: var(--accent-primary, #C7A985);
+  margin: 0;
+}
+
+.era-section__period-tag {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3.2vw, 2.2rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.era-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.era-section__narrative {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.85;
+  color: var(--text-secondary);
+  max-width: 620px;
+}
+
+/* ── Divider ───────────────────────────────────────────────── */
+.era-section__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-primary);
+  margin-bottom: 3.5rem;
+}
+
+/* ── Vehicle Grid ──────────────────────────────────────────── */
+.era-section__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.75rem;
+}
+
+.era-section__grid-item--landscape { grid-column: span 7; }
+.era-section__grid-item--portrait  { grid-column: span 5; }
+.era-section__grid-item--wide      { grid-column: span 12; }
+
+@media (max-width: 1100px) {
+  .era-section__grid-item--landscape { grid-column: span 8; }
+  .era-section__grid-item--portrait  { grid-column: span 4; }
+}
+
+@media (max-width: 860px) {
+  .era-section__grid-item--landscape,
+  .era-section__grid-item--portrait,
+  .era-section__grid-item--wide {
+    grid-column: span 12;
+  }
+}
+
+/* ── Footer Timeline Ornament ──────────────────────────────── */
+.era-section__footer-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 4.5rem;
+  opacity: 0.45;
+}
+
+.era-section__footer-line {
+  flex: 1;
+  height: 1px;
+  background: var(--accent-secondary, #8F6E4F);
+}
+
+.era-section__footer-period {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Formula 1 Custom Special Treatment ─────────────────────── */
+[data-era="formula1"] .era-section__year-mark {
+  color: #ff1801;
+  -webkit-text-stroke-color: #ff1801;
+}
+
+[data-era="formula1"] .era-section__line-accent {
+  background: linear-gradient(to right, transparent, #ff1801, transparent);
+}
+
+[data-era="formula1"] .era-section__phase-dot {
+  background: #ff1801;
+  box-shadow: 0 0 8px #ff1801;
+}
+
+/* ── Electric Revolution Custom Treatment ───────────────────── */
+[data-era="electric"] .era-section__year-mark {
+  -webkit-text-stroke-color: #00f0ff;
+  opacity: 0.08;
+}
+
+[data-era="electric"] .futuristic-telemetry-line {
+  background: linear-gradient(90deg, transparent 5%, #00f0ff 50%, transparent 95%);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+[data-era="electric"] .era-section__phase-dot {
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+/* ── Accessibility & Reduced Motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .era-section__bg {
+    transition: none;
+  }
+  .era-section__year-mark {
+    transform: translateY(-50%) !important;
+    transition: none;
+  }
+  .era-atmosphere {
+    transform: none !important;
+  }
+  .era-section__header {
+    transform: none !important;
+  }
+  .blueprint-scan-line {
+    animation: none;
+    top: 50%;
+    opacity: 0.2;
+  }
+}
