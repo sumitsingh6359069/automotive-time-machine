@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { getAssetUrl } from '../utils/asset';
 import '../styles/hero.css';
 
 interface Props {
@@ -40,7 +41,7 @@ export default function HeroSection({ onBeginJourney }: Props) {
       {/* Background image layer */}
       <div ref={imageRef} className="hero-bg" aria-hidden="true">
         <img
-          src="/vehicles/benz-patent-1886.jpg"
+          src={getAssetUrl('vehicles/benz-patent-1886.jpg')}
           alt="Karl Benz Patent-Motorwagen 1885"
           className="hero-bg__img"
           loading="eager"

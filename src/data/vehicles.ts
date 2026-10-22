@@ -59,7 +59,7 @@ const birthVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Karl Benz filed German patent DRP 37435 on 29 January 1886. His wife Bertha Benz undertook the first long-distance automobile journey in August 1888, driving from Mannheim to Pforzheim — a journey of approximately 106 km — demonstrating the vehicle\'s practical potential to a skeptical public.',
-    imageUrl: '/vehicles/benz-patent-1886.jpg',
+    imageUrl: './vehicles/benz-patent-1886.jpg',
     imageAlt: 'Benz Patent-Motorwagen 1886, the first gasoline-powered automobile',
     imageCredit: 'Wikimedia Commons — Public Domain',
     accentColor: '#C7A985',
@@ -82,7 +82,7 @@ const birthVehicles: Vehicle[] = [
     ],
     historicalContext:
       'De Dion-Bouton became the world\'s largest automobile manufacturer by 1900, producing more than 3,000 vehicles annually. Their lightweight single-cylinder engine design was licensed and copied by dozens of manufacturers across Europe and North America.',
-    imageUrl: '/vehicles/de-dion-1899.jpg',
+    imageUrl: './vehicles/de-dion-1899.jpg',
     imageAlt: 'De Dion-Bouton Type D Voiturette circa 1899',
     imageCredit: 'Wikimedia Commons — Public Domain',
     accentColor: '#DEC5A6',
@@ -107,7 +107,7 @@ const birthVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Henry Ford introduced the moving assembly line at the Highland Park plant in 1913, reducing the time to build a Model T from more than twelve hours to approximately ninety-three minutes. By 1921 the Model T accounted for more than half of all cars on American roads.',
-    imageUrl: '/vehicles/ford-model-t-1908.jpg',
+    imageUrl: './vehicles/ford-model-t-1908.jpg',
     imageAlt: 'Ford Model T circa 1910, the car that put America on wheels',
     imageCredit: 'Wikimedia Commons — Public Domain',
     accentColor: '#8F6E4F',
@@ -135,7 +135,7 @@ const goldenVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Designed by Ettore Bugatti and his son Jean, the Type 35 debuted at the 1924 French Grand Prix at Lyon. Its distinctive cast aluminium wheels with integral brake drums, exposed hollow front axle, and horseshoe-shaped radiator established Bugatti\'s reputation for marrying engineering precision with visual beauty.',
-    imageUrl: '/vehicles/bugatti-type35-1924.jpg',
+    imageUrl: './vehicles/bugatti-type35-1924.jpg',
     imageAlt: 'Bugatti Type 35 racing car, circa 1924',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#C7A985',
@@ -159,7 +159,7 @@ const goldenVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Only 406 examples of the 540 K were produced in total, with the Special Roadster being the rarest and most desirable configuration. Today, these cars regularly achieve prices in excess of \$10 million at auction, reflecting their status as some of the most coveted pre-war automobiles in existence.',
-    imageUrl: '/vehicles/mercedes-540k-1936.jpg',
+    imageUrl: './vehicles/mercedes-540k-1936.jpg',
     imageAlt: 'Mercedes-Benz 540 K Special Roadster 1937',
     imageCredit: 'Wikimedia Commons — Public Domain',
     accentColor: '#EAD3B4',
@@ -183,7 +183,7 @@ const goldenVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Unveiled at the 1948 Earls Court Motor Show, the XK120 was intended as a low-volume model to showcase the new XK engine. Overwhelming public demand prompted full production. The name refers to its claimed top speed of 120 mph (193 km/h), later exceeded by test examples. The XK120 established Jaguar as a maker of credible high-performance sports cars at accessible prices.',
-    imageUrl: '/vehicles/jaguar-xk120-1948.jpg',
+    imageUrl: './vehicles/jaguar-xk120-1948.jpg',
     imageAlt: 'Jaguar XK120 Roadster 1954',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#927148',
@@ -211,7 +211,7 @@ const midcenturyVehicles: Vehicle[] = [
     ],
     historicalContext:
       'The 250 GTO was built to satisfy the FIA\'s Group 3 Grand Touring Car regulations and required a minimum production run of 100 units — regulations that Ferrari famously circumvented. Engineered by Giotto Bizzarrini and styled by Sergio Scaglietti, it won the International GT Championship for Ferrari in 1962, 1963, and 1964. Auction records for surviving examples have exceeded \$70 million.',
-    imageUrl: '/vehicles/ferrari-250gto-1962.jpg',
+    imageUrl: './vehicles/ferrari-250gto-1962.jpg',
     imageAlt: 'Ferrari 250 GTO at Goodwood Revival 2012',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#C7A985',
@@ -236,7 +236,7 @@ const midcenturyVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Carroll Shelby conceived the Cobra after approaching AC Cars with a proposal to install an American V8 into their existing roadster. Ford provided engineering support and engines. The 427 S/C Competition variant was among the fastest production cars of its era and remains one of the most desirable American sports cars ever built.',
-    imageUrl: '/vehicles/shelby-cobra-427-1965.jpg',
+    imageUrl: './vehicles/shelby-cobra-427-1965.jpg',
     imageAlt: 'Shelby Cobra 427 at Goodwood Festival of Speed 2012',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#8F6E4F',
@@ -260,7 +260,7 @@ const midcenturyVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Designed by Ferdinand "Butzi" Porsche and introduced at the 1963 Frankfurt Motor Show as the successor to the 356. The 911\'s distinctive shape, rear-engine layout, and air-cooled flat-six engine were controversially retained through decades of development. It remains in production, now with a water-cooled engine, representing more than sixty years of continuous evolution.',
-    imageUrl: '/vehicles/porsche-911-1963.jpg',
+    imageUrl: './vehicles/porsche-911-1963.jpg',
     imageAlt: 'Porsche 911 Carrera RS 2.7 from 1973',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#DEC5A6',
@@ -284,7 +284,7 @@ const midcenturyVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Henry Ford II\'s determination to defeat Ferrari at Le Mans after Enzo Ferrari withdrew from a proposed acquisition deal led to the GT40 programme. With help from Shelby American and engineer Roy Lunn, Ford developed the car in record time. The 1966 finish — with Bruce McLaren and Chris Amon crossing the line first — is one of the most celebrated moments in motorsport history.',
-    imageUrl: '/vehicles/ford-gt40-1964.jpg',
+    imageUrl: './vehicles/ford-gt40-1964.jpg',
     imageAlt: 'Ford GT40 at Goodwood Festival of Speed 2019',
     imageCredit: 'Wikimedia Commons — CC BY-SA 4.0',
     accentColor: '#927148',
@@ -312,7 +312,7 @@ const performanceVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Designed by Marcello Gandini at Bertone, the Countach caused a sensation at the 1971 Geneva Motor Show as a concept (LP500). The production LP400 debuted in 1973. The name "Countach" is a Piedmontese exclamation of astonishment — reportedly the word uttered by Bertone workers when they first saw the design. Production continued until 1990.',
-    imageUrl: '/vehicles/lamborghini-countach-1974.jpg',
+    imageUrl: './vehicles/lamborghini-countach-1974.jpg',
     imageAlt: 'Lamborghini Countach LP400 1974',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#C7A985',
@@ -337,7 +337,7 @@ const performanceVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Developed to celebrate Ferrari\'s 40th anniversary, the F40 was designed by Pininfarina\'s Leonardo Fioravanti on a race-derived Kevlar and carbon-fibre body. No power steering, no ABS, no traction control — a pure driving machine. Its aggressive aerodynamics and twin-turbo V8 produced performance that remained unmatched by any street-legal production car until the McLaren F1 arrived in 1992.',
-    imageUrl: '/vehicles/ferrari-f40-1987.jpg',
+    imageUrl: './vehicles/ferrari-f40-1987.jpg',
     imageAlt: 'Ferrari F40 1990',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#8F6E4F',
@@ -366,7 +366,7 @@ const modernVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Designed by Gordon Murray, the McLaren F1 remains one of the greatest engineering achievements in automotive history. Its three-seat central-driving-position layout, titanium construction, gold-lined engine bay, and bespoke BMW engine represented no-compromise thinking. The GTR variant won the 1995 24 Hours of Le Mans on its debut, driven by Yannick Dalmas, J.J. Lehto, and Masanori Sekiya.',
-    imageUrl: '/vehicles/mclaren-f1-1992.jpg',
+    imageUrl: './vehicles/mclaren-f1-1992.jpg',
     imageAlt: 'McLaren F1 road car',
     imageCredit: 'Wikimedia Commons — CC BY 2.0',
     accentColor: '#C7A985',
@@ -391,7 +391,7 @@ const modernVehicles: Vehicle[] = [
     ],
     historicalContext:
       'The Carrera GT\'s V10 engine was derived from a Porsche Le Mans prototype project that was cancelled following the 9/11 attacks in 2001. The production car featured a carbon-fibre monocoque, a ceramic clutch, and a wooden gearshift knob, referencing early racing cars. Its demanding dynamics made it one of the most driver-focused supercars of its decade.',
-    imageUrl: '/vehicles/porsche-carrera-gt-2004.jpg',
+    imageUrl: './vehicles/porsche-carrera-gt-2004.jpg',
     imageAlt: 'Porsche Carrera GT in silver',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#EAD3B4',
@@ -420,7 +420,7 @@ const supercarVehicles: Vehicle[] = [
     ],
     historicalContext:
       'The Veyron project was initiated by Ferdinand Piëch, then chairman of Volkswagen Group, as a demonstration of what VW Group engineering could achieve with unlimited resources. Development cost an estimated €1.5 billion. Each car was reported to cost Bugatti approximately €5 million to produce, against a selling price of approximately €1.2 million. It redefined what was possible in a road car.',
-    imageUrl: '/vehicles/bugatti-veyron-2005.jpg',
+    imageUrl: './vehicles/bugatti-veyron-2005.jpg',
     imageAlt: 'Bugatti Veyron 16.4 in Düsseldorf 2012',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#927148',
@@ -445,7 +445,7 @@ const supercarVehicles: Vehicle[] = [
     ],
     historicalContext:
       'The Aventador featured a carbon-fibre monocoque as standard and debuted Lamborghini\'s pushrod suspension at all four corners. Its angular styling, inspired by stealth aircraft, was designed by Filippo Perini. The Aventador LP 780-4 Ultimae, produced as the final variant in 2021–2022, represented the high-water mark of naturally aspirated Lamborghini road cars.',
-    imageUrl: '/vehicles/lamborghini-aventador-2011.jpg',
+    imageUrl: './vehicles/lamborghini-aventador-2011.jpg',
     imageAlt: 'Lamborghini Aventador LP700-4 in white',
     imageCredit: 'Wikimedia Commons — CC BY 2.0',
     accentColor: '#C7A985',
@@ -470,7 +470,7 @@ const supercarVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Christian von Koenigsegg founded his company in 1994. The Agera R broke Guinness World Records for 0–300 km/h and 300–0 km/h acceleration in 2011. The successor, the One:1, achieved a power-to-weight ratio of 1,000 hp per 1,000 kg — a 1:1 ratio — and was the first production car to reach 1 megawatt of power.',
-    imageUrl: '/vehicles/koenigsegg-agera-r-2011.jpg',
+    imageUrl: './vehicles/koenigsegg-agera-r-2011.jpg',
     imageAlt: 'Koenigsegg Agera R 2011',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#DEC5A6',
@@ -499,7 +499,7 @@ const electricVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Based on a heavily modified Lotus Elise platform, the Tesla Roadster proved that electric cars could be desirable and competitive. It established Tesla\'s credibility and funded the development of the Model S. The second-generation Roadster, announced in 2017, promises significantly higher performance figures.',
-    imageUrl: '/vehicles/tesla-roadster-2008.jpg',
+    imageUrl: './vehicles/tesla-roadster-2008.jpg',
     imageAlt: 'Tesla Roadster first generation 2010',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#CFCFB7',
@@ -524,7 +524,7 @@ const electricVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Mate Rimac founded Rimac Automobili in Croatia in 2009. The Nevera, named after a type of fierce Mediterranean storm, set numerous Guinness World Records for electric vehicle performance. Rimac\'s technology division supplies battery systems and powertrains to Aston Martin, Porsche, and others. Porsche AG acquired a majority stake in Rimac Group in 2022.',
-    imageUrl: '/vehicles/rimac-nevera-2021.jpg',
+    imageUrl: './vehicles/rimac-nevera-2021.jpg',
     imageAlt: 'Rimac Nevera electric hypercar at IAA Munich 2021',
     imageCredit: 'Wikimedia Commons — CC BY-SA 4.0',
     accentColor: '#927148',
@@ -549,7 +549,7 @@ const electricVehicles: Vehicle[] = [
     ],
     historicalContext:
       'The Taycan set a new Nürburgring lap record for electric vehicles in 2019. Its 800-volt electrical architecture, a first for a production car, enables significantly faster charging than conventional 400V EV systems. The car\'s name derives from Old Turkish, meaning approximately "soul of a spirited young horse."',
-    imageUrl: '/vehicles/porsche-taycan-2019.jpg',
+    imageUrl: './vehicles/porsche-taycan-2019.jpg',
     imageAlt: 'Porsche Taycan Turbo S 2020',
     imageCredit: 'Wikimedia Commons — CC BY-SA 4.0',
     accentColor: '#C7A985',
@@ -576,7 +576,7 @@ const f1Vehicles: Vehicle[] = [
     ],
     historicalContext:
       'The 158 was designed by Gioacchino Colombo in 1938. Originally a voiturette (1.5 L supercharged class) car, it was hidden during World War II and re-emerged in 1946. By the start of the Formula One World Championship in 1950, it was the most advanced Grand Prix car available. The evolved 159 won in 1951 before fuel consumption made it uncompetitive against the Ferrari 375.',
-    imageUrl: '/vehicles/alfa-romeo-158-1950.jpg',
+    imageUrl: './vehicles/alfa-romeo-158-1950.jpg',
     imageAlt: 'Alfa Romeo 159 at Goodwood Festival of Speed 2014',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#C7A985',
@@ -598,7 +598,7 @@ const f1Vehicles: Vehicle[] = [
     ],
     historicalContext:
       'The Lotus 49 introduced the Ford Cosworth DFV engine, which was designed specifically for it and went on to win 155 Formula One races — more than any other engine in the sport\'s history. Jim Clark won on its debut at the 1967 Dutch Grand Prix. The Gold Leaf livery of 1968 broke with the tradition of national racing colours and began the modern era of commercial sponsorship in Formula One.',
-    imageUrl: '/vehicles/lotus-49-1967.jpg',
+    imageUrl: './vehicles/lotus-49-1967.jpg',
     imageAlt: 'Lotus 49 at Goodwood Revival 2012',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#DEC5A6',
@@ -621,7 +621,7 @@ const f1Vehicles: Vehicle[] = [
     ],
     historicalContext:
       'Designed by Gordon Murray and Steve Nichols with Honda\'s turbo V6, the MP4/4 arrived for the final year of turbocharged engines in Formula One. Senna won 8 races; Prost won 7. Only Gerhard Berger\'s Ferrari denied them a clean sweep, winning the final race at Monza. The 1988 Constructors\' Championship score was 199 points to Ferrari\'s 65.',
-    imageUrl: '/vehicles/mclaren-mp4-4-1988.jpg',
+    imageUrl: './vehicles/mclaren-mp4-4-1988.jpg',
     imageAlt: 'McLaren MP4/4 at Donington Park',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#8F6E4F',
@@ -644,7 +644,7 @@ const f1Vehicles: Vehicle[] = [
     ],
     historicalContext:
       'The F2004 won 15 of 18 races in the 2004 season, with Schumacher taking 13 victories and Rubens Barrichello taking 2. It was the last year of naturally aspirated V10 engines, as new regulations mandated a switch to V8s for 2006. The car represented the pinnacle of Ferrari\'s Schumacher-Brawn-Todt era of domination.',
-    imageUrl: '/vehicles/ferrari-f2004-2004.jpg',
+    imageUrl: './vehicles/ferrari-f2004-2004.jpg',
     imageAlt: 'Ferrari F2004 at Goodwood Festival of Speed 2014',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#927148',
@@ -671,7 +671,7 @@ const beyondVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Designed by Spen King and Gordon Bashford, the Range Rover was the first vehicle to combine genuine off-road capability with a car-like, relatively refined interior. Its coil-spring suspension (replacing the industry-standard leaf springs) delivered unprecedented comfort on-road. The Louvre in Paris accepted a 1970 Range Rover into its permanent collection in 1971 as an aesthetic and industrial-design object.',
-    imageUrl: '/vehicles/range-rover-1970.jpg',
+    imageUrl: './vehicles/range-rover-1970.jpg',
     imageAlt: 'Range Rover Classic 1970 at Goodwood 2013',
     imageCredit: 'Wikimedia Commons — CC BY-SA 2.0',
     accentColor: '#DEC5A6',
@@ -694,7 +694,7 @@ const beyondVehicles: Vehicle[] = [
     ],
     historicalContext:
       'Roland Barthes wrote a celebrated essay about the DS in 1957, describing it as having "the best spiritual meaning of the word" — a near-supernatural object. French President Charles de Gaulle survived an assassination attempt in 1962 largely because the DS\'s hydropneumatic suspension allowed the car to continue driving on burst tyres. The DS name was a deliberate pun on "déesse" — French for goddess.',
-    imageUrl: '/vehicles/citroen-ds-1955.jpg',
+    imageUrl: './vehicles/citroen-ds-1955.jpg',
     imageAlt: 'Citroën DS in green',
     imageCredit: 'Wikimedia Commons — CC BY-SA 3.0',
     accentColor: '#C7A985',

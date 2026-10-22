@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import type { Vehicle } from '../data/vehicles';
+import { getAssetUrl } from '../utils/asset';
 import '../styles/vehicle-detail.css';
 
 interface Props {
@@ -137,7 +138,7 @@ export default function VehicleDetail({ vehicle, onClose }: Props) {
           ) : (
             <div className="detail-hero__stage">
               <img
-                src={vehicle.imageUrl}
+                src={getAssetUrl(vehicle.imageUrl)}
                 alt={vehicle.imageAlt}
                 className="detail-hero__img"
                 style={{

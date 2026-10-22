@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import type { Vehicle } from '../data/vehicles';
+import { getAssetUrl } from '../utils/asset';
 import '../styles/vehicle-card.css';
 
 interface Props {
@@ -98,7 +99,7 @@ export default function VehicleCard({ vehicle, index, onSelect, layout = 'landsc
           </div>
         ) : (
           <img
-            src={vehicle.imageUrl}
+            src={getAssetUrl(vehicle.imageUrl)}
             alt={vehicle.imageAlt}
             className={`vehicle-card__img ${imgLoaded ? 'is-loaded' : ''}`}
             loading="lazy"
